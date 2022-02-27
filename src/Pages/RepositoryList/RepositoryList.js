@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import RepoCard from '../../components/Molecules/RepoCard/RepoCard';
 
 import { useLocalStorage } from '../../Hooks/useLocalStorage';
 import { getLastWeekRepos } from '../../Helpers/common';
+import RepoList from '../../components/Molecules/RepoList/RepoList';
 
 function RepositoryList() {
   const [repositories, setRepositories] = useState([]);
   const [filteredRepositories, setFilteredRepositories] =
     useState(repositories);
   const [filter, setFilter] = useState('');
-  const [starredRepos, setStarredRepos] = useLocalStorage('starred', []);
 
   useEffect(() => {
     getLastWeekRepos().then((data) => {
@@ -17,15 +16,6 @@ function RepositoryList() {
       setFilteredRepositories(data.items);
     });
   }, []);
-
-  const starRepository = (repository) => {
-    const isRepoStarred = starredRepos.some(
-      (starred) => starred.id === repository.id,
-    );
-    if (!isRepoStarred) {
-      setStarredRepos([...starredRepos, repository]);
-    }
-  };
 
   const filterByLanguage = (e) => {
     const inputFilter = e.target.value;
@@ -47,13 +37,9 @@ function RepositoryList() {
         <input value={filter} onChange={filterByLanguage} />
       </div>
       {filteredRepositories.length ? (
-        <>
-          {filteredRepositories.map((repo) => (
-            <RepoCard key={repo.id} {...repo} starRepository={starRepository} />
-          ))}
-        </>
+        <RepoList repositories={filteredRepositories} />
       ) : (
-        <p>No Repos</p>
+        <p>No Repositories</p>
       )}
     </div>
   );

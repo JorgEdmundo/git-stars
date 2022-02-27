@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from '../Button/Button';
 
@@ -8,12 +9,17 @@ function Header() {
   return (
     <div className="header">
       <div className="header-wrap container">
-        <h1 onClick={() => setPage('home')} className="title">
-          My Movie Picker
+        <h1 className="title">
+          <Link to="/">Git Stars</Link>
         </h1>
         <div className="actions">
-          <Button handleClick={() => {}}>Home</Button>
-          <Button handleClick={() => {}}>Go to Starred List</Button>
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
+
+          <Link to="/starred">
+            <Button>Go to Starred List</Button>
+          </Link>
         </div>
       </div>
     </div>
