@@ -1,0 +1,40 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.header {
+  background: $primary;
+  color: $white;
+  height: auto;
+  padding: 10px 0;
+  width: 100%;
+
+  &-wrap {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 16px;
+    height: 100%;
+    justify-content: flex-start;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  .title {
+    cursor: pointer;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0 20px;
+  }
+
+  @include media-min-width('tablet') {
+    height: 64px;
+
+    &-wrap {
+      align-items: center;
+      flex-direction: row;
+      gap: 0 16px;
+      justify-content: space-between;
+    }
+  }
+}
