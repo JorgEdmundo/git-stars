@@ -1,19 +1,15 @@
 import React from 'react';
-import { render } from 'react-dom';
 
-import RepositoryList from './Pages/RepositoryList/RepositoryList';
-import Starred from './Pages/Starred/Starred';
+import MainRoutes from './routes/MainRoutes';
 
 import './globalStyles/globals.scss';
-
-const rootElement = document.getElementById('root');
+import Header from './components/Atoms/Header/Header';
 
 const App = () => (
   <>
-    <p>Git stars</p>
-    <RepositoryList />
-    {/* <Starred /> */}
+    <Header />
+    <MainRoutes />
   </>
 );
 
-render(<App />, rootElement);
+export default App;
