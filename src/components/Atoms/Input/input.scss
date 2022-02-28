@@ -1,0 +1,36 @@
+@import '../../../globalStyles/mixins';
+@import '../../../globalStyles/variables';
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+
+  input {
+    background: $white;
+    border: 1px solid $gray;
+    border-radius: 3px;
+    color: $primary-black;
+    font-size: 16px;
+    height: 25px;
+    margin: 0;
+    padding: 5px 10px;
+  }
+
+  label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  @include media-min-width('tablet') {
+    align-items: center;
+    flex-direction: row;
+    gap: 0 15px;
+    justify-content: flex-start;
+
+    input {
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+}

@@ -15,39 +15,13 @@
 
   &:hover {
     background: $primary;
-    border: 1px solid $white;
+    border: 1px solid $black;
     color: $white;
   }
 
-  &.btn-action {
-    background: $white;
-    border: 1px solid $white;
-    color: $black;
-
+  &.btn-dark {
     &:hover {
-      background: $black;
-      border: 1px solid $black;
-      color: $action;
-    }
-  }
-  &.btn-horror {
-    background: $black;
-    border: 1px solid $black;
-    color: $horror;
-
-    &:hover {
-      color: $white;
-    }
-  }
-  &.btn-animated {
-    background: $white;
-    border: 1px solid $white;
-    color: $black;
-
-    &:hover {
-      background: $black;
-      border: 1px solid $black;
-      color: $animated;
+      border: 1px solid $white;
     }
   }
 }

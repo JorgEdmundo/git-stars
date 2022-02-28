@@ -1,0 +1,9 @@
+@import '../../../globalStyles/variables';
+
+.list-wrapper {
+  background: $white;
+  border-radius: 5px;
+  box-shadow: $shadow-many;
+  margin-top: 20px;
+  padding: 20px;
+}
