@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-// import { useLocalStorage } from '../../../Hooks/useLocalStorage';
 import { formatDate } from '../../../Helpers/common';
+import Button from '../../Atoms/Button/Button';
 
 import './repoCard.scss';
 
 function RepoCard(props) {
+  const { repository, starRepository, hasAction } = props;
+
   const {
     description,
     language,
@@ -13,21 +15,14 @@ function RepoCard(props) {
     stargazers_count,
     html_url,
     updated_at,
-    starRepository,
-  } = props;
-
-  // const [starredRepos, setStarredRepos] = useLocalStorage('starred', null);
+  } = repository;
 
   const addToStarList = () => {
-    // const isRepoStarred = starredRepos.some((repo) => repo.id === id);
-    // if (!isRepoStarred) {
-    //   setStarredRepos({ ...props });
-    // }
-    starRepository(props);
+    starRepository(repository);
   };
 
   return (
-    <div>
+    <div className="card-wrapper">
       <div className="info">
         <h3>
           <a href={html_url} target="_blank">
@@ -35,13 +30,17 @@ function RepoCard(props) {
           </a>
         </h3>
         <p>{description}</p>
-        <span>{language || 'No language'}</span>
-        <span>Stars: {stargazers_count}</span>
-        <span>Last update: {formatDate(updated_at)}</span>
+        <div className="chips">
+          <span>{language || 'No language defined'}</span>
+          <span>Stars: {stargazers_count}</span>
+          <span>Last updated: {formatDate(updated_at)}</span>
+        </div>
       </div>
-      <div className="actions">
-        <button onClick={addToStarList}>Add to Star List</button>
-      </div>
+      {hasAction && (
+        <div className="actions">
+          <Button handleClick={addToStarList}>Add to Star List</Button>
+        </div>
+      )}
     </div>
   );
 }

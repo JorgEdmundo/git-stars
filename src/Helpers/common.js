@@ -35,3 +35,12 @@ export const getLastWeekRepos = async () => {
     console.error(error);
   }
 };
+
+export const filterByLanguage = (dataList, inputFilter) => {
+  const copyRepos = [...dataList];
+  const filtered = copyRepos.filter((repo) => {
+    return repo.language?.toLowerCase().includes(inputFilter);
+  });
+
+  return filtered;
+};

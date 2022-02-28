@@ -1,6 +1,59 @@
-.info {
-  span {
-    display: inline-block;
-    margin-right: 10px;
+@import '../../../globalStyles/mixins';
+@import '../../../globalStyles/variables';
+
+.card-wrapper {
+  align-items: flex-start;
+  border-bottom: 1px solid $gray;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+
+  .info {
+    h3 {
+      margin-top: 0;
+      a {
+        color: $blue;
+      }
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    span {
+      border: 1px solid $black;
+      border-radius: 5px;
+      display: inline-block;
+      padding: 5px 10px;
+
+      &:hover {
+        background: $black;
+        color: $white;
+      }
+    }
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @include media-min-width('tablet') {
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+
+    .info {
+      width: 80%;
+    }
+    .actions {
+      text-align: right;
+      width: 20%;
+    }
   }
 }

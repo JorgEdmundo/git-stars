@@ -4,16 +4,12 @@
 .header {
   background: $primary;
   height: auto;
-  padding: 10px 0;
+  padding: 20px 0;
   width: 100%;
 
   a {
     color: $white;
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   &-wrap {
@@ -28,21 +24,33 @@
   }
   .title {
     cursor: pointer;
+    margin: 0;
   }
 
-  .actions {
+  .navigation {
     display: flex;
     gap: 0 20px;
   }
 
   @include media-min-width('tablet') {
     height: 64px;
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
     &-wrap {
       align-items: center;
       flex-direction: row;
       gap: 0 16px;
       justify-content: space-between;
+    }
+  }
+
+  @include media-min-width('desktop') {
+    &-wrap {
+      padding: 0;
     }
   }
 }
