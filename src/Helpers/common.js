@@ -1,5 +1,8 @@
 export const formatDate = (date) => {
   const dateObject = new Date(date);
+
+  if (isNaN(dateObject)) return 'Invalid date';
+
   const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
     dateObject,
   );
@@ -13,7 +16,7 @@ export const formatDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
-const getLastWeekDate = () => {
+export const getLastWeekDate = () => {
   const WEEK_DAYS = 7;
   const dateNow = new Date();
   const lastWeek = dateNow.setDate(dateNow.getDate() - WEEK_DAYS);
