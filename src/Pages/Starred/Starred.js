@@ -13,7 +13,9 @@ function Starred() {
   const [inputFilter, setInputFilter] = useState('');
 
   useEffect(() => {
-    const filtered = filterByLanguage(starredRepos, inputFilter);
+    const filtered = inputFilter
+      ? filterByLanguage(starredRepos, inputFilter)
+      : starredRepos;
     setFilteredRepositories(filtered);
   }, [inputFilter]);
 
